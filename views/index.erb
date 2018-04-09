@@ -1,0 +1,18 @@
+<h1>Your order so far...</h1>
+
+<% session[:full_order].each do |order| %>
+
+<%= order %>
+<br>
+<br>
+<% end %>
+<br>
+
+
+<form class="" action="another" method="post">
+  <input type="submit" value="Order Another Pizza">
+</form>
+
+<form class="" action="finalize" method="post">
+  <input type="submit" name="" value="Complete Your Order">
+</form>

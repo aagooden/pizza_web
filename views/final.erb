@@ -1,0 +1,11 @@
+<h1>Your final order:</h1>
+
+<% session[:full_order].each do |order| %>
+
+<%= order %>
+<br>
+<br>
+<% end %>
+
+<%= session[:final_total] %>
+<br>

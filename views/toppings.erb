@@ -1,0 +1,39 @@
+<h1>Pick your toppings below</h1>
+
+<h1>Your Pizza so far...</h1>
+
+<%= session[:size] %>
+<br>
+<%= session[:crust] %>
+<br>
+<%= session[:sauce] %>
+<br>
+<%= session[:meats] %>
+<br>
+
+
+
+
+<form class="" action="delivery" method="post">
+
+  <br>
+  <h3>Select the toppings for your pizza</h3>
+    <input type="checkbox" name="toppings[]" value="peppers" id="peppers"> <label for="peppers"><img src="peppers.jpg" style="width:100px;height:100px;"> Peppers</label>
+    <br>
+    <br>
+    <input type="checkbox" name="toppings[]" value="onions" id="onions"> <label for="onions"><img src="onion.jpg" style="width:100px;height:100px;"> Onions</label>\
+    <br>
+    <br>
+    <input type="checkbox" name="toppings[]" value="olives" id="olives"> <label for="olives"><img src="olives.jpg" style="width:100px;height:100px;"> Olives</label>
+    <br>
+    <br>
+    <input type="checkbox" name="toppings[]" value="mushrooms" id="mushrooms"> <label for="mushrooms"><img src="mushrooms.jpg" style="width:100px;height:100px;"> Mushrooms</label>
+    <br>
+
+		<input type="submit" value="YES!">
+</form>
+
+<form class="" action="delivery" method="post">
+
+  	<input type="submit" value="No Toppings">
+</form>
