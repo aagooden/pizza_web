@@ -2,7 +2,7 @@ final_order = {}
 
 
 def current_order_total(current_order)
-puts "Hitting the method... current_order is #{current_order}"
+#puts "Hitting the method... current_order is #{current_order}"
   total = 0
 
   if current_order[0][0] == "small"
@@ -34,6 +34,6 @@ def overall_total(full_order)
   full_order.each do |order|
     total += order[5]
   end
-
+  puts "Hitting the method.  The total is #{total}"
   return total
 end

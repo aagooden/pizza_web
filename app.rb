@@ -87,11 +87,19 @@ end
 
 
 get "/index" do
+
 	session[:order_total] = current_order_total(session[:current_order])
+	puts "session[ordertotal] is #{session[:order_total]}"
 	session[:current_order].push(session[:order_total])
 	session[:full_order].push(session[:current_order])
 
 	erb :index
+end
+
+
+
+get "/delivery" do
+	erb :delivery
 end
 
 
@@ -101,14 +109,10 @@ post "/delivery" do
 	session[:address].push(params[:address])
 	session[:address].push(params[:city])
 	session[:address].push(params[:state])
-	redirect "/delivery"
+	redirect "/final_totalling"
 
 end
 
-
-get "/delivery" do
-	erb :delivery
-end
 
 
 post "/another" do
@@ -124,13 +128,29 @@ post "/another" do
 end
 
 
-post "/finalize" do
+get "/final_totalling" do
 	session[:final_total] = overall_total(session[:full_order])
-
+	puts "The session[final_total] is #{session[:final_total]}"
 	redirect "/finalize"
 end
 
 
 get "/finalize" do
+	puts "The address is #{session[:address]}"
 	erb :final
+end
+
+
+get "/news" do
+	erb :news
+end
+
+
+get "/contact" do
+	erb :contact
+end
+
+
+get "/about" do
+	erb :about
 end
