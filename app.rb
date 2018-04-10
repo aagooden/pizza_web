@@ -2,10 +2,7 @@ require "sinatra"
 require "erb"
 require_relative "methods.rb"
 
-
-
 enable :sessions
-
 
 
 get "/" do
@@ -22,31 +19,50 @@ get "/" do
 end
 
 
-post "/size_crust" do
-	redirect "/size_crust"
+post "/size" do
+	redirect "/size"
 end
 
 
-get "/size_crust" do
-
-	erb :size_crust
+get "/size" do
+	erb :size
 end
 
 
-post "/sauce_meats" do
+post "/crust" do
 	session[:size].push(params[:size])
-	session[:crust].push(params[:crust])
-	redirect "/sauce_meats"
+	redirect "/crust"
 end
 
 
-get "/sauce_meats" do
-	erb :sauce_meats
+get "/crust" do
+	erb :crust
+end
+
+post "/sauce" do
+	session[:crust].push(params[:crust])
+	redirect "/sauce"
+end
+
+
+get "/sauce" do
+	erb :sauce
+end
+
+
+post "/meats" do
+	session[:sauce].push(params[:sauce])
+	redirect "/meats"
+end
+
+
+get "/meats" do
+	erb :meats
 end
 
 
 post "/toppings" do
-	session[:sauce].push(params[:sauce])
+
 	session[:meats].push(params[:meats])
 	redirect "/toppings"
 end
@@ -57,22 +73,8 @@ get "/toppings" do
 end
 
 
-post "/delivery" do
-	session[:toppings].push(params[:toppings])
-	redirect "/delivery"
-end
-
-
-get "/delivery" do
-	erb :delivery
-end
-
 post "/index" do
-	session[:address].push(params[:f_name])
-	session[:address].push(params[:l_name])
-	session[:address].push(params[:address])
-	session[:address].push(params[:city])
-	session[:address].push(params[:state])
+	session[:toppings].push(params[:toppings])
 
 	session[:current_order].push(session[:size])
 	session[:current_order].push(session[:crust])
@@ -85,13 +87,27 @@ end
 
 
 get "/index" do
-	# puts session[:current_order][0]
 	session[:order_total] = current_order_total(session[:current_order])
-	# puts "the order total is now #{session[:order_total]}"
 	session[:current_order].push(session[:order_total])
 	session[:full_order].push(session[:current_order])
 
 	erb :index
+end
+
+
+post "/delivery" do
+	session[:address].push(params[:f_name])
+	session[:address].push(params[:l_name])
+	session[:address].push(params[:address])
+	session[:address].push(params[:city])
+	session[:address].push(params[:state])
+	redirect "/delivery"
+
+end
+
+
+get "/delivery" do
+	erb :delivery
 end
 
 
@@ -103,14 +119,17 @@ post "/another" do
 		session[:toppings] = Array.new
 		session[:current_order] = Array.new
 
-		redirect "/size_crust"
+
+		redirect "/size"
 end
+
 
 post "/finalize" do
 	session[:final_total] = overall_total(session[:full_order])
 
 	redirect "/finalize"
 end
+
 
 get "/finalize" do
 	erb :final

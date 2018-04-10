@@ -2,9 +2,20 @@
 
 <% session[:full_order].each do |order| %>
 
-<%= order %>
-<br>
-<br>
+  <h3>Size:  <%= order[0][0] %></h3>
+  <p></p>
+  <h3>Crust:  <%= order[1][0] %></h3>
+  <p></p>
+  <h3>Sauce:  <%= order[2][0] %></h3>
+  <p></p>
+  <h3>Meats: </h3>
+  <%if order[3][0] == "none"%>
+    <h3>None</h3>
+  <%else%>
+      <%order[3][0].each do |meat|%>
+      <h3><%= meat%></h3>
+      <% end %>
+  <% end %>
 <% end %>
 
 <%= session[:final_total] %>
