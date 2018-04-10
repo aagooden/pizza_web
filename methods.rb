@@ -14,11 +14,13 @@ puts "Hitting the method... current_order is #{current_order}"
   end
 
 
-  if current_order[3][0].length > 1
+  if current_order[3][0] == nil
+  else
     total = total + ((current_order[3][0].length - 1) * 2)
   end
 
-  if current_order[4][0].length > 1
+  if current_order[4][0] == nil
+  else
     total = total + ((current_order[4][0].length - 1) * 1)
   end
 

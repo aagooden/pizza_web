@@ -1,7 +1,10 @@
 <h1>Your final order:</h1>
 
-<% session[:full_order].each do |order| %>
+<%count = 1%>
 
+<div2 class="columns">
+<% session[:full_order].each do |order| %>
+<h2>Pizza <%=count%></h2>
   <h3>Size:  <%= order[0][0] %></h3>
   <p></p>
   <h3>Crust:  <%= order[1][0] %></h3>
@@ -9,14 +12,26 @@
   <h3>Sauce:  <%= order[2][0] %></h3>
   <p></p>
   <h3>Meats: </h3>
-  <%if order[3][0] == "none"%>
+  <%if order[3][0] == nil%>
     <h3>None</h3>
   <%else%>
       <%order[3][0].each do |meat|%>
       <h3><%= meat%></h3>
       <% end %>
   <% end %>
+  <br>
+  <h3>Toppings: </h3>
+  <%if order[4][0] == nil%>
+    <h3>None</h3>
+  <%else%>
+      <%order[4][0].each do |topping|%>
+      <h3><%= topping%></h3>
+      <% end %>
+  <% end %>
+  <%count += 1%>
+  <br>
 <% end %>
+</div2>
 
 <%= session[:final_total] %>
 <br>
