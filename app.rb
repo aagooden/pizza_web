@@ -14,7 +14,6 @@ get "/" do
 	session[:address] = []
 	session[:current_order] = Array.new
 	session[:full_order] = []
-
 	erb :welcome
 end
 
@@ -31,6 +30,11 @@ end
 
 post "/crust" do
 	session[:size].push(params[:size])
+	if session[:size].length > 1
+		for x in (0...session[:size].length)
+			session[:size].delete(session[:size][x])
+		end
+	end
 	redirect "/crust"
 end
 
@@ -39,8 +43,16 @@ get "/crust" do
 	erb :crust
 end
 
+
 post "/sauce" do
 	session[:crust].push(params[:crust])
+
+	if session[:crust].length > 1
+		for x in (0...session[:crust].length)
+			session[:crust].delete(session[:crust][x])
+		end
+	end
+
 	redirect "/sauce"
 end
 
@@ -52,6 +64,13 @@ end
 
 post "/meats" do
 	session[:sauce].push(params[:sauce])
+
+	if session[:sauce].length > 1
+		for x in (0...session[:sauce].length)
+			session[:sauce].delete(session[:sauce][x])
+		end
+	end
+
 	redirect "/meats"
 end
 
@@ -62,7 +81,6 @@ end
 
 
 post "/toppings" do
-
 	session[:meats].push(params[:meats])
 	redirect "/toppings"
 end
@@ -72,30 +90,64 @@ get "/toppings" do
 	erb :toppings
 end
 
+post "/meats_conf" do
+	session[:toppings].push(params[:toppings])
+	redirect "/meats_conf"
+end
+
+
+get "/meats_conf" do
+	if session[:meats] == [nil]
+		redirect "/toppings_conf"
+	end
+
+
+	erb :meats_conf
+end
+
+
+post "/toppings_conf" do
+	params.each do |meat|
+		if meat[1] == "none"
+			session[:meats][0].delete(meat[0])
+		end
+	end
+	redirect "/toppings_conf"
+end
+
+
+get "/toppings_conf" do
+	if session[:toppings] == [nil]
+		redirect "/index"
+	end
+
+	erb :toppings_conf
+end
+
 
 post "/index" do
-	session[:toppings].push(params[:toppings])
+	params.each do |topping|
+		if topping[1] == "none"
+			session[:toppings][0].delete(topping[0])
+		end
+	end
+	redirect "/index"
+end
 
+
+get "/index" do
 	session[:current_order].push(session[:size])
 	session[:current_order].push(session[:crust])
 	session[:current_order].push(session[:sauce])
 	session[:current_order].push(session[:meats])
 	session[:current_order].push(session[:toppings])
 
-	redirect "/index"
-end
-
-
-get "/index" do
-
 	session[:order_total] = current_order_total(session[:current_order])
-	puts "session[ordertotal] is #{session[:order_total]}"
 	session[:current_order].push(session[:order_total])
 	session[:full_order].push(session[:current_order])
 
 	erb :index
 end
-
 
 
 get "/delivery" do
@@ -114,7 +166,6 @@ post "/delivery" do
 end
 
 
-
 post "/another" do
 		session[:size] = []
 		session[:crust] = []
@@ -122,8 +173,6 @@ post "/another" do
 		session[:meats] = Array.new
 		session[:toppings] = Array.new
 		session[:current_order] = Array.new
-
-
 		redirect "/size"
 end
 
