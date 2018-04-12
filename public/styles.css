@@ -5,7 +5,9 @@
 
 body {
   background-color: red;
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: "Helvetica", Ari
+  al, sans-serif;
+  /* font-family: 'Jacques Francois';font-size: 22px; */
   padding: 1%;
   text-align: center;
   color: #333;
@@ -18,10 +20,16 @@ h3 {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 5px;
+  /* font-family: 'Jacques Francois'; */
   font-family: serif;
   font-size: 4vw;
   font-weight: bold;
   color: white;
+      text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 h2 {
@@ -29,6 +37,7 @@ h2 {
   margin-top: 20px;
   margin-bottom: 0px;
   font-family: serif;
+  /* font-family: 'Jacques Francois'; */
   font-size: 5vw;
   font-weight: bold;
   color: white;
@@ -43,8 +52,8 @@ h2 {
 h1 {
   text-align: center;
   margin-top: 100px;
-  font-family: s
-  erif;
+  font-family: serif;
+  /* font-family: 'Jacques Francois'; */
   font-size: 8vw;
   font-weight: bold;
   color: white;
@@ -89,12 +98,12 @@ textarea {
 }
 
 
-p + div {
+/* p + div {
   margin-top: 50px;
   text-align: center;
   background-color: transparent;
   border-bottom: none;
-}
+} */
 
 div {
   /* text-align: center; */
@@ -104,9 +113,19 @@ div {
   background-color: #fff;
   padding: 50px;
   border-radius: 5px;
-  border-right: solid 5px #ddd;
-  border-bottom: solid 5px #ddd;
+  border-right: solid 5px black;
+  border-top: solid 5px black;
+  border-bottom: solid 5px black;
+  border-left: solid 5px black;
   margin-bottom: 2%;
+}
+
+img {
+  border-radius: px;
+  border-right: solid 2px black;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
 }
 
 ul {
@@ -138,12 +157,12 @@ li a:hover:not(.active) {
 }
 
 
-/* div2 .columns{
+.columns {
   margin-top: 50px;
   text-align: left;
   font-size: 2vw;
   color: black;
   background-color: transparent;
   border-bottom: none;
-  column-count: 3;
-} */
+  column-count: 2;
+}

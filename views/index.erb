@@ -1,28 +1,46 @@
 <h1>Your order so far...</h1>
 <%count = 1%>
 <% session[:full_order].each do |order| %>
-<h2>Pizza <%=count%></h2>
-  <h3>Size:  <%= order[0][0] %></h3>
+<h1>Pizza <%=count%></h1>
+  <h2>Size:  <%= order[0][0] %></h2>
   <p></p>
-  <h3>Crust:  <%= order[1][0] %></h3>
+  <h2>Crust:  <%= order[1][0] %></h2>
   <p></p>
-  <h3>Sauce:  <%= order[2][0] %></h3>
+  <h2>Sauce:  <%= order[2][0] %></h2>
   <p></p>
-  <h3>Meats: </h3>
+  <h2>Meats: </h2>
   <%if order[3][0] == nil%>
-    <h3>None</h3>
+    <h2>None</h2>
   <%else%>
       <%order[3][0].each do |meat|%>
-      <h3><%= meat%></h3>
+          <% if meat == "pepperoni" %>
+                <h3><%= meat%></h3> <img src="pepperoni.jpg" style="width:100px;height:100px;">
+              <% elsif meat == "sausage" %>
+                <h3><%= meat%></h3> <img src="sausage.jpg" style="width:100px;height:100px;">
+              <% elsif meat == "ham" %>
+                <h3><%= meat%></h3> <img src="ham.jpg" style="width:100px;height:100px;">
+              <% elsif meat == "chicken" %>
+                <h3><%= meat%></h3> <img src="chicken.jpg" style="width:100px;height:100px;">
+          <% end %>
       <% end %>
   <% end %>
   <br>
-  <h3>Toppings: </h3>
+  <h2>Toppings: </h2>
   <%if order[4][0] == nil%>
     <h3>None</h3>
   <%else%>
       <%order[4][0].each do |topping|%>
-      <h3><%= topping%></h3>
+      <% if topping == "peppers" %>
+            <h3><%= topping%></h3><img src="peppers.jpg" style="width:100px;height:100px;">
+          <% elsif topping == "onions" %>
+            <h3><%= topping%></h3><img src="onion.jpg" style="width:100px;height:100px;">
+          <% elsif topping == "olives" %>
+            <h3><%= topping%></h3><img src="olives.jpg" style="width:100px;height:100px;">
+          <% elsif topping == "mushrooms" %>
+            <h3><%= topping%></h3><img src="mushrooms.jpeg" style="width:100px;height:100px;">
+          <% elsif topping == "cheese" %>
+            <h3><%= topping%></h3><img src="cheese.jpeg" style="width:100px;height:100px;">
+      <% end %>
       <% end %>
   <% end %>
   <%count += 1%>
