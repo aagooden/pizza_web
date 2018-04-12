@@ -70,7 +70,7 @@ input[type="submit"] {
   color: #fff;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 2vw;
+  font-size: 4vw;
   text-decoration: none;
   padding: 12px 20px;
   border-radius: 100px;
@@ -97,13 +97,6 @@ textarea {
   font-size: 2vw;
 }
 
-
-/* p + div {
-  margin-top: 50px;
-  text-align: center;
-  background-color: transparent;
-  border-bottom: none;
-} */
 
 div {
   /* text-align: center; */
