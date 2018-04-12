@@ -97,8 +97,7 @@ textarea {
   font-size: 2vw;
 }
 
-
-div {
+div.box{
   /* text-align: center; */
   text-align: left;
   width: 40%;

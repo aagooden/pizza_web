@@ -9,7 +9,8 @@
   <p></p>
   <h2>Sauce:  <%= order[2][0] %></h2>
   <p></p>
-  <h2>Meats: </h2>
+  <h2><u>Meats: </u></h2>
+  <p></p>
   <%if order[3][0] == nil%>
     <h2>None</h2>
   <%else%>
@@ -26,7 +27,9 @@
       <% end %>
   <% end %>
   <br>
-  <h2>Toppings: </h2>
+  <br>
+  <h2><u>Toppings: </u></h2>
+  <p></p>
   <%if order[4][0] == nil%>
     <h2>None</h2>
   <%else%>
@@ -47,6 +50,7 @@
   <%count += 1%>
   <br>
   <br>
+  <h3>_________________________________________</h3>
 <% end %>
 </div>
 <br>
