@@ -1,10 +1,10 @@
 <br>
-<h2>Please confirm your meat selections below...</h2>
+<h1>Meat confirmation below</h1>
 
 
 <form action="toppings_conf" method="post">
   <%session[:meats][0].each do |meat|%>
-  <h3><%= meat %></h3> <input type="radio" name="<%= meat %>" value="<%= meat %>" checked="checked"> Yes
+  <h2><%= meat %></h2> <input type="radio" name="<%= meat %>" value="<%= meat %>" checked="checked"> Yes
   <input type="radio" name="<%= meat %>" value="none"> No
 <%end%>
 <br>

@@ -6,7 +6,7 @@
 </ul>
 
 <h1>Your final order:</h1>
-
+<div>
 <%count = 1%>
 <% session[:full_order].each do |order| %>
 <h1>Pizza <%=count%></h1>
@@ -55,6 +55,7 @@
 <% end %>
   <br>
 <% end %>
+</div>
 
 <% total_total = session[:final_total].to_f %>
 <% tax = total_total * 0.06 %>
@@ -67,10 +68,10 @@
   <% address = session[:address][2] %>
   <% city = session[:address][3] %>
   <% state = session[:address][4] %>
-  <h2>Order will be delivered to:</h2>
-  <h3>  <%= f_name %>  <%= l_name %> </h3>
-  <h3>  <%= address %> </h3>
-  <h3>  <%= city %>,  <%= state %> </h3>
+  <h1>Order will be delivered to:</h1>
+  <h2>  <%= f_name %>  <%= l_name %> </h2>
+  <h2>  <%= address %> </h2>
+  <h2>  <%= city %>,  <%= state %> </h2>
   <% delivery = 5 %>
 <% end %>
 <% total_total = total_total + delivery + tax  %>
