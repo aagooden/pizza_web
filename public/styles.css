@@ -100,12 +100,12 @@ textarea {
 
 div {
   /* text-align: center; */
-  text-align: justify;
+  text-align: left;
   width: 40%;
   margin-left: auto;
   margin-right: auto;
   background-color: #fff;
-  padding: 2%;
+  padding: 4%;
   border-radius: 5px;
   border-right: solid 5px black;
   border-top: solid 5px black;
@@ -115,6 +115,25 @@ div {
   float: center;
   width: 50%;
 }
+
+div.center {
+  /* text-align: center; */
+  text-align: center;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  padding: 4%;
+  border-radius: 5px;
+  border-right: solid 5px black;
+  border-top: solid 5px black;
+  border-bottom: solid 5px black;
+  border-left: solid 5px black;
+  margin-bottom: 2%;
+  float: center;
+  width: 50%;
+}
+
 
 div.cheese {
   /* text-align: center; */

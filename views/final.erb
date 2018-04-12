@@ -6,7 +6,7 @@
 </ul>
 
 <h1>Your final order:</h1>
-<div>
+<div class="center">
 <%count = 1%>
 <% session[:full_order].each do |order| %>
 <h1>Pizza <%=count%></h1>
@@ -16,43 +16,47 @@
   <p></p>
   <h2>Sauce:  <%= order[2][0] %></h2>
   <p></p>
-  <h2>Meats: </h2>
+  <h2><u>Meats:</u></h2>
+  <p></p>
   <%if order[3][0] == nil%>
     <h2>None</h2>
   <%else%>
       <%order[3][0].each do |meat|%>
           <% if meat == "pepperoni" %>
-                <h3><%= meat%></h3> <img src="pepperoni.jpg" style="width:100px;height:100px;">
+                <img src="pepperoni.jpg" style="width:100px;height:100px;">
               <% elsif meat == "sausage" %>
-                <h3><%= meat%></h3> <img src="sausage.jpg" style="width:100px;height:100px;">
+                <img src="sausage.jpg" style="width:100px;height:100px;">
               <% elsif meat == "ham" %>
-                <h3><%= meat%></h3> <img src="ham.jpg" style="width:100px;height:100px;">
+                <img src="ham.jpg" style="width:100px;height:100px;">
               <% elsif meat == "chicken" %>
-                <h3><%= meat%></h3> <img src="chicken.jpg" style="width:100px;height:100px;">
+                <img src="chicken.jpg" style="width:100px;height:100px;">
           <% end %>
       <% end %>
   <% end %>
   <br>
-  <h2>Toppings: </h2>
+  <br>
+  <h2><u>Toppings:</u> </h2>
+  <p></p>
   <%if order[4][0] == nil%>
     <h3>None</h3>
   <%else%>
       <%order[4][0].each do |topping|%>
       <% if topping == "peppers" %>
-            <h3><%= topping%></h3><img src="peppers.jpg" style="width:100px;height:100px;">
+            <img src="peppers.jpg" style="width:100px;height:100px;">
           <% elsif topping == "onions" %>
-            <h3><%= topping%></h3><img src="onion.jpg" style="width:100px;height:100px;">
+            <img src="onion.jpg" style="width:100px;height:100px;">
           <% elsif topping == "olives" %>
-            <h3><%= topping%></h3><img src="olives.jpg" style="width:100px;height:100px;">
+            <img src="olives.jpg" style="width:100px;height:100px;">
           <% elsif topping == "mushrooms" %>
-            <h3><%= topping%></h3><img src="mushrooms.jpeg" style="width:100px;height:100px;">
+            <img src="mushrooms.jpeg" style="width:100px;height:100px;">
           <% elsif topping == "cheese" %>
-            <h3><%= topping%></h3><img src="cheese.jpeg" style="width:100px;height:100px;">
+            <img src="cheese.jpeg" style="width:100px;height:100px;">
       <% end %>
   <% end %>
   <%count += 1%>
   <br>
 <% end %>
+<h3>_________________________________________</h3>
   <br>
 <% end %>
 </div>
@@ -69,6 +73,7 @@
   <% city = session[:address][3] %>
   <% state = session[:address][4] %>
   <h1>Order will be delivered to:</h1>
+  <div class="center">
   <h2>  <%= f_name %>  <%= l_name %> </h2>
   <h2>  <%= address %> </h2>
   <h2>  <%= city %>,  <%= state %> </h2>
@@ -76,6 +81,6 @@
 <% end %>
 <% total_total = total_total + delivery + tax  %>
 <h2>Your total is: $<%= sprintf("%.02f",total_total)%></h2>
-
+</div>
 <h3></h3>
 <br>
