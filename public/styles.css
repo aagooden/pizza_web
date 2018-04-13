@@ -202,3 +202,33 @@ li a:hover:not(.active) {
   border-bottom: none;
   column-count: 2;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  background-color: green;
+  padding: 10px;
+  border-right: solid 2px black;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+}
+.grid-container > div {
+  background-color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 30px;
+  border-right: solid 2px black;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-radius: 25px;
+
+}
+/* .item1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
+} */
