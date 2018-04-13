@@ -225,6 +225,7 @@ li a:hover:not(.active) {
   border-top: solid 2px black;
   border-bottom: solid 2px black;
   border-left: solid 2px black;
+  border-radius: 25px;
 }
 .grid-container > div {
   background-color: white;
