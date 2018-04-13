@@ -156,14 +156,25 @@ div.cheese {
 
 }
 
+img.top {
+  border-radius: 2px;
+  border-right: solid 2px black;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  width:90%;height:75%;
+}
+
 img {
   border-radius: 2px;
   border-right: solid 2px black;
   border-top: solid 2px black;
   border-bottom: solid 2px black;
   border-left: solid 2px black;
-  width:75px;height:75px;
+  width:75px;height:100px;
 }
+
+
 
 ul {
     list-style-type: none;
