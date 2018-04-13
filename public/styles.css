@@ -162,6 +162,7 @@ img {
   border-top: solid 2px black;
   border-bottom: solid 2px black;
   border-left: solid 2px black;
+  width:75px;height:75px;
 }
 
 ul {
@@ -206,9 +207,9 @@ li a:hover:not(.active) {
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-gap: 10px;
+  grid-gap: 5px;
   background-color: green;
-  padding: 10px;
+  padding: 5px;
   border-right: solid 2px black;
   border-top: solid 2px black;
   border-bottom: solid 2px black;
@@ -217,8 +218,8 @@ li a:hover:not(.active) {
 .grid-container > div {
   background-color: white;
   text-align: center;
-  padding: 10px 0;
-  font-size: 30px;
+  padding: 5px 0;
+  font-size: 20px;
   border-right: solid 2px black;
   border-top: solid 2px black;
   border-bottom: solid 2px black;
