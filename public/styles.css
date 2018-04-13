@@ -226,6 +226,8 @@ li a:hover:not(.active) {
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-radius: 25px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .grid-container > div {
   background-color: white;
@@ -237,8 +239,19 @@ li a:hover:not(.active) {
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-radius: 25px;
-
 }
+
+#blank {
+  background-color: green;
+  border-right: solid 2px green;
+  border-top: solid 2px green;
+  border-bottom: solid 2px green;
+  border-left: solid 2px green;
+  border-radius: 25px;
+}
+
+
+
 /* .item1 {
   grid-row-start: 1;
   grid-row-end: 3;
